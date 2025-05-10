@@ -1,28 +1,46 @@
-import "./App.css";
-import toast, { Toaster } from "react-hot-toast";
-import { motion } from "framer-motion";
+import './index.css';
+import { ErrorElement } from './components';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+
+import {
+  HomePage,
+  Login,
+  Signup,
+  LandingPage,
+  Error
+} from './pages';
+
+
+// Setup react router
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomePage />,
+    errorElement : <Error />,
+    children: [
+      {
+        index:true,
+        element: <LandingPage />,
+        errorElement: <ErrorElement />
+      },
+      {
+        path: '/login',
+        element: <Login />,
+        errorElement: <ErrorElement />
+      },
+      {
+        path: '/signup',
+        element: <Signup />,
+        errorElement: <ErrorElement />
+      }
+    ]
+  },
+])
 
 function App() {
-  const notify = () => toast("Here is your toast.");
 
-  return (
-    <div className="App">
-      <div>
-        <button onClick={notify}>Make me a toast</button>
-        <Toaster />
-      </div>
-
-      <motion.div
-        className="motion-div" 
-        animate={{ x: 100, opacity: 1 }}
-        initial={{ x: 0, opacity: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h1>Welcome to the login page</h1>
-      </motion.div>
-
-    </div>
-  );
+  return <RouterProvider router={router} />
 }
 
 export default App;
