@@ -6,20 +6,21 @@ const SubmitBtn = ({ text, className = "", disabled = false }) => {
 
     return (
         <button 
-            type='submit' 
-            disabled={isSubmitting || disabled}
-            className={`w-[408px] mt-5 h-[40px] flex flex-row justify-center items-center px-6 gap-2 
-                        bg-black text-white font-medium hover:bg-gray-700 rounded-full transition-colors 
-                        disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+        type='submit' 
+        disabled={isSubmitting || disabled}
+        className={`w-full h-10 flex justify-center items-center px-6 gap-2 
+                    bg-black text-white font-medium hover:bg-gray-700 
+                    rounded-full transition-colors 
+                    disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
         >
-            {isSubmitting ? (
-                <>
-                    <span className="inline-block w-6 h-6 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></span>
-                    sending...
-                </>
-            ) : (
-                text || 'submit'
-            )}
+        {isSubmitting ? (
+            <>
+            <span className="inline-block w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"></span>
+            Sending...
+            </>
+        ) : (
+            text || 'Submit'
+        )}
         </button>
     );
 };
