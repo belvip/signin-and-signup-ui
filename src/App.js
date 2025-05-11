@@ -3,6 +3,7 @@ import { ErrorElement } from './components';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 
+
 import {
   HomePage,
   Login,
@@ -11,6 +12,14 @@ import {
   Error
 } from './pages';
 
+export const loginAction = async ({ request }) => {
+  const formData = await request.formData();
+  const email = formData.get('email');
+  // Simule une attente réseau
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  console.log('Email:', email);
+  return null;
+};
 
 // Setup react router
 const router = createBrowserRouter([
@@ -27,7 +36,8 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />,
-        errorElement: <ErrorElement />
+        errorElement: <ErrorElement />,
+        action: loginAction,
       },
       {
         path: '/signup',

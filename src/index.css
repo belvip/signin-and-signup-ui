@@ -8,16 +8,12 @@
   }
 }
 
+body{
+  background: #f5f5f5;
+}
 
-
-.motion-div {
-  width: fit-content;
-  background: gray;
-  padding: 10px;
-  color: white;
-  font-size: 20px;
-  border-radius: 8px; 
-
+input::placeholder {
+    padding-left: .5%;
 }
 
 

@@ -11,14 +11,16 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
       },
-        colors: {
+      colors: {
         customRed: '#ac1e23',
-        customRed: "rgba(172, 30, 35, 1)",
         btnColor: "#0172F4",
+        bgInput: "#F7FAFC",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 };
 
 

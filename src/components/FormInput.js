@@ -1,28 +1,44 @@
-/**
- * 
- * @returns FormInput component
- * A reusable input field component for forms with a label
- * 
- */
+import { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-const FormInput = ({label, name, type, defaultValue, size}) => {
-    return (
-        <div className="form-control">
-            {/* Label Field */}
-            <label htmlFor={name} className="label">
-                {/* Display the label text and ensure it's capitalize */}
-                <span className="label-text capitalize">{label}</span>
-            </label>
+const FormInput = ({ label, name, type, placeholder, size, className, labelClassName }) => {
+  const [showPassword, setShowPassword] = useState(false);
 
-            {/* Input Field */}
-            <input 
-                type={type} 
-                name={name}
-                defaultValue={defaultValue}
-                className={`input input-bordered ${size}`}
-            />
-        </div>
-    )
-}
+  return (
+    <div className="form-control relative">
+      <label htmlFor={name} className={`label ${labelClassName}`}>
+        <span className="label-text">{label}</span>
+      </label>
+      
+      <div className="relative">
+        <input
+          type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
+          name={name}
+          placeholder={placeholder}
+          className={`input input-bordered ${size} ${className} mr-0`} 
+        />
+        
+        {type === 'password' && (
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            {/* Ligne verticale de séparation */}
+            <div className="h-6 border-l border-gray-300 mr-3"></div>
+            
+            <button
+              type="button"
+              className="flex items-center justify-center"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <FaEyeSlash className="text-gray-400 text-2xl" />
+              ) : (
+                <FaEye className="text-gray-400 text-2xl" />
+              )}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default FormInput
+export default FormInput;
