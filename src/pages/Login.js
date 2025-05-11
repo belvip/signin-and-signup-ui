@@ -36,7 +36,7 @@ const Login = () => {
                     className="w-[150px] h-[58px] left-[14px] top-[90px]"
                 />
 
-                <div className="font-inter absolute w-[350px] h-[168px] left-[159px] top-[221px]">
+                <div className="font-inter w-[350px] h-[168px] ml-12 mt-14">
                     <h1 className='font-inter font-bold text-4xl mt-1'>Signin</h1>
                     <h2 className='font-bold mt-2 font-raleway'>Welcome back!</h2>
                     <p>Log in to manage your services, deals, and technical opportunities</p>
