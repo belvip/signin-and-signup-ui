@@ -9,8 +9,10 @@ import {
   Login,
   Signup,
   LandingPage,
-  Error
+  Error,
+  ForgotPassword
 } from './pages';
+
 
 export const loginAction = async ({ request }) => {
   const formData = await request.formData();
@@ -27,14 +29,6 @@ export const loginAction = async ({ request }) => {
   return { success: false, error: "Email ou mot de passe invalide" };
 };
 
-// export const loginAction = async ({ request }) => {
-//   const formData = await request.formData();
-//   const email = formData.get('email');
-//   // Simule une attente réseau
-//   await new Promise(resolve => setTimeout(resolve, 1000));
-//   console.log('Email:', email);
-//   return null;
-// };
 
 // Setup react router
 const router = createBrowserRouter([
@@ -58,6 +52,11 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />,
         errorElement: <ErrorElement />
+      },
+      {
+        path: '/forgot-password',
+        element: <ForgotPassword />,
+        errorElement: <ErrorElement />,
       }
     ]
   },

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
@@ -20,33 +21,35 @@ const FormInput = ({
         <span className="label-text">{label}</span>
       </label>
       
-      <div className="relative">
-        <input
-          type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
-          name={name}
-          placeholder={placeholder}
-          value={value}               
-          onChange={onChange}         
-          className={`input input-bordered ${size} ${className} mr-0`} 
-        />
-        
-        {type === 'password' && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-            <div className="h-6 border-l border-gray-300 mr-3"></div>
-            <button
-              type="button"
-              className="flex items-center justify-center"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? (
-                <FaEyeSlash className="text-gray-400 text-2xl" />
-              ) : (
-                <FaEye className="text-gray-400 text-2xl" />
-              )}
-            </button>
-          </div>
+      <div className="relative w-[408px]">
+  <input
+    type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
+    name={name}
+    placeholder={placeholder}
+    value={value}
+    onChange={onChange}
+    className={`input input-bordered w-[408PX] h-[40px] border border-[#CBD5E0] shadow-inner rounded-[12px] bg-bgInput pr-14 ${className}`}
+  />
+
+  {type === 'password' && (
+    <div className="absolute inset-y-0 right-3 flex items-center">
+      {/* Barre verticale dans le champ input */}
+      <div className="h-9 border-l border-gray-300 mr-2"></div> 
+      <button
+        type="button"
+        className="p-1"
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        {showPassword ? (
+          <FaEyeSlash className="text-gray-400 text-xl" />
+        ) : (
+          <FaEye className="text-gray-400 text-xl" />
         )}
-      </div>
+      </button>
+    </div>
+  )}
+</div>
+
     </div>
   );
 };
