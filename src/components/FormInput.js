@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-const FormInput = ({ label, name, type, placeholder, size, className, labelClassName }) => {
+const FormInput = ({ 
+  label, 
+  name, 
+  type, 
+  placeholder, 
+  size, 
+  className, 
+  labelClassName,
+  value,
+  onChange
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -15,14 +25,14 @@ const FormInput = ({ label, name, type, placeholder, size, className, labelClass
           type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
           name={name}
           placeholder={placeholder}
+          value={value}               
+          onChange={onChange}         
           className={`input input-bordered ${size} ${className} mr-0`} 
         />
         
         {type === 'password' && (
           <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-            {/* Ligne verticale de séparation */}
             <div className="h-6 border-l border-gray-300 mr-3"></div>
-            
             <button
               type="button"
               className="flex items-center justify-center"

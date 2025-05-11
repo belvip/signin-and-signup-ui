@@ -15,11 +15,26 @@ import {
 export const loginAction = async ({ request }) => {
   const formData = await request.formData();
   const email = formData.get('email');
+  const password = formData.get('password');
+  
   // Simule une attente réseau
   await new Promise(resolve => setTimeout(resolve, 1000));
-  console.log('Email:', email);
-  return null;
+  
+  // Ici, normalement, vous feriez une vérification réelle
+  if (email && password) {
+    return { success: true };
+  }
+  return { success: false, error: "Email ou mot de passe invalide" };
 };
+
+// export const loginAction = async ({ request }) => {
+//   const formData = await request.formData();
+//   const email = formData.get('email');
+//   // Simule une attente réseau
+//   await new Promise(resolve => setTimeout(resolve, 1000));
+//   console.log('Email:', email);
+//   return null;
+// };
 
 // Setup react router
 const router = createBrowserRouter([
