@@ -30,10 +30,10 @@ const Login = () => {
             <img 
             src={logo} 
             alt="Company logo" 
-            className="w-[150px] h-[58px] mb-8"
+            className="absolute w-[150px] h-[58px] mb-8 left-24 top-[145px]"
             />
 
-            <div className="max-w-md w-full mx-auto">
+            <div className="max-w-md w-full mx-auto mt-12">
             <h1 className='font-bold text-4xl mb-1'>Signin</h1>
             <h2 className='font-bold mt-2'>Welcome back!</h2>
             <p className="mt-2">Log in to manage your services, deals, and technical opportunities</p>
