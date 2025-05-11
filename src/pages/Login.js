@@ -30,7 +30,9 @@ const Login = () => {
             <img 
             src={logo} 
             alt="Company logo" 
-            className="absolute w-[150px] h-[58px] mb-8 left-24 top-[145px]"
+            className="absolute w-[150px] h-[58px] mb-8 left-6 top-20 sm:left-12 sm:top-28 md:left-24 md:top-36"
+
+            // className="absolute w-[150px] h-[58px] mb-8 left-24 top-[145px]"
             />
 
             <div className="max-w-md w-full mx-auto mt-12">
